@@ -1,45 +1,60 @@
-import { fn } from '@storybook/test';
-import { Button } from './Button';
+import '@crowdstrike/glide-core/button.js';
+import { html, nothing } from 'lit';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
-  title: 'Example/Button',
+  title: 'Button',
   tags: ['autodocs'],
-  render: (args) => Button(args),
+  args: {
+    'slot="default"': 'Button',
+    disabled: false,
+    variant: 'primary',
+    size: 'large',
+  },
+  render: (args) => html`
+  <glide-core-button
+    size=${args.size}
+    variant=${args.variant}
+    ?disabled=${args.disabled || nothing}
+  >
+    ${args['slot="default"']}
+  </glide-core-button
+  >`,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'tertiary'],
+      table: {
+        defaultValue: {
+          summary: '"primary"',
+        },
+        type: { summary: '"primary" | "secondary" | "tertiary"' },
+      },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+      options: ['large', 'small'],
+      table: {
+        defaultValue: {
+          summary: '"large"',
+        },
+        type: { summary: '"large" | "small"' },
+      },
+    },
+    'slot="default"': {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'Element | string' },
+      },
+      type: { name: 'string', required: true },
     },
   },
-  args: { onClick: fn() },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = {
   args: {
-    primary: true,
-    label: 'Button',
-  },
-};
-
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
-};
-
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    variant: 'primary',
   },
 };
