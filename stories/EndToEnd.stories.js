@@ -43,10 +43,14 @@ export default {
     // Form submission
     context.canvasElement
       .querySelector('form')
-      .addEventListener('submit', (e) => {
-        e.preventDefault();
+      .addEventListener('submit', (event) => {
+        event.preventDefault();
 
-        tag.textContent = 'Submitted';
+        const form = event.target;
+        const formData = new FormData(form);
+
+        tag.textContent = `${formData.get('name')}|${formData.get('description')}`;
+
         modal.close();
       });
   },
@@ -67,14 +71,23 @@ export default {
       <glide-core-tag data-testid="tag-state">Not submitted</glide-core-tag>
     </div>
 
-    <glide-core-modal label="Information">
+    <glide-core-modal label="Information" data-testid="modal">
       <form id="test-form">
         <glide-core-form-controls-layout>
-          <glide-core-input label="Name" required>
+          <glide-core-input
+            label="Name"
+            name="name"
+            data-testid="input"
+            required
+          >
             <div slot="description">Provide a name</div>
           </glide-core-input>
 
-          <glide-core-textarea label="Description">
+          <glide-core-textarea
+            label="Description"
+            name="description"
+            data-testid="textarea"
+          >
             <div slot="description">Provide a description (optional)</div>
           </glide-core-textarea>
         </glide-core-form-controls-layout>

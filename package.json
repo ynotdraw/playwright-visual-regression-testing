@@ -11,7 +11,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "playwright test",
-    "test:update": "playwright test --update-snapshots"
+    "test:report": "playwright show-report",
+    "test:update": "playwright test --update-snapshots",
+    "test:ui": "playwright test --ui --debug"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.1",
