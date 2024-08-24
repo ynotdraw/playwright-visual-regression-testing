@@ -4,8 +4,7 @@ import '@crowdstrike/glide-core/input.js';
 import '@crowdstrike/glide-core/modal.js';
 import '@crowdstrike/glide-core/tag.js';
 import '@crowdstrike/glide-core/textarea.js';
-
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 
 export default {
   title: 'E2E',
