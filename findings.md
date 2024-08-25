@@ -9,7 +9,7 @@ Overall findings testing with Playwright.
 ## Components that seem to work just fine
 
 - Button
-- Dropdown
+- Dropdown (non-filterable)
 - Form Controls Layout
 - Icon Button
 - Menu
@@ -21,6 +21,8 @@ Overall findings testing with Playwright.
 
 ## Components that work with a minor adjustment
 
+- Dropdown (filtering)
+  - Use `pressSequentially()` instead of `fill()`. Unclear why, need to dig in more.
 - Input
   - Use `pressSequentially()` instead of `fill()`. Unclear why, need to dig in more.
 - Textarea
