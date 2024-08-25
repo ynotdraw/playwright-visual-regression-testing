@@ -5,16 +5,16 @@ Overall findings testing with Playwright.
 ## TODO
 
 - Dropdown
-- Icon Button
 - Toasts
 
 ## Components that seem to work just fine
 
 - Button
 - Form Controls Layout
-- Radio Group + Radios
-- Modal
+- Icon Button
 - Menu
+- Modal
+- Radio Group + Radios
 - Status Indicator
 - Tabs
 - Tag
