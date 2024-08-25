@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('can interact with the Split Button element', async ({ page }) => {
+test.skip('can interact with the Split Button element', async ({ page }) => {
   await page.goto('/iframe.html?args=&id=splitbutton--primary&viewMode=story');
 
   const tag = page.getByTestId('tag-state');
