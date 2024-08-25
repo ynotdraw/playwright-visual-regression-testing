@@ -5,6 +5,7 @@ Overall findings testing with Playwright.
 ## Components that seem to work just fine
 
 - Button
+- Drawer
 - Dropdown (non-filterable)
 - Form Controls Layout
 - Icon Button
