@@ -4,7 +4,6 @@ Overall findings testing with Playwright.
 
 ## TODO
 
-- Menu (by itself)
 - Dropdown
 - Icon Button
 - Toasts
@@ -15,6 +14,7 @@ Overall findings testing with Playwright.
 - Form Controls Layout
 - Radio Group + Radios
 - Modal
+- Menu
 - Status Indicator
 - Tabs
 - Tag
