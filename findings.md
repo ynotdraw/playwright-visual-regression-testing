@@ -31,6 +31,10 @@ Overall findings testing with Playwright.
 - Toggle
   - Calling `click()` doesn't toggle the state, even though it works when done in JavaScript
   - Must use `evaluate()` and call `click()` through it
+- Tree Item Menu
+  - Can't be clicked to be opened with Playwright's `locator.click()` - has issues with visibility
+    - Focus puts the three-dot menu in view, but it still seems to have `visbility: hidden` which blocks Playwright from accessing it
+  - Must use `evaluate()` and call `focus()` and then `click()` through it
 
 Notes about `evaluate`:
 
@@ -43,8 +47,5 @@ Notes about `evaluate`:
 
 ## Components with issues
 
-- Tree Item Menu
-  - Can't be clicked to be opened, has issues with visibility
-  - Focus puts the three-dot menu in view, but it still seems to have `visbility: hidden` which blocks Playwright from accessing it
 - Split Button's menu icon button
   - Can't be clicked - wonder if a click method on the host would help? Not sure.

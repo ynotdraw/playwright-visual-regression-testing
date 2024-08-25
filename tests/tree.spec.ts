@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('can interact with Tree elements', async ({ page }) => {
+test('can interact with Tree elements', async ({ page }) => {
   await page.goto('/iframe.html?args=&id=tree--primary&viewMode=story');
 
   const treeItem = page.getByTestId('leaf-2');
@@ -15,7 +15,12 @@ test.skip('can interact with Tree elements', async ({ page }) => {
 
   await expect(page).toHaveScreenshot('default-state.png');
 
-  await treeItem.focus();
+  // await treeItem.focus();
+
+  // Calling `focus()` on it directly via `evaluate` works,
+  // but Playwright's `locator.focus()` does not.
+  // https://playwright.dev/docs/api/class-locator#locator-evaluate
+  await treeItem.evaluate((element) => element.focus());
 
   await expect(page).toHaveScreenshot('focused.png');
 
@@ -30,13 +35,18 @@ test.skip('can interact with Tree elements', async ({ page }) => {
   //   - attempting click action
   //   -   waiting for element to be visible, enabled and stable
   //   -   element is not visible
-  await treeItemMenu.click();
+  // await treeItemMenu.click();
+
+  // Calling `click()` on it directly via `evaluate` works,
+  // but Playwright's `locator.click()` does not.
+  // https://playwright.dev/docs/api/class-locator#locator-evaluate
+  await treeItemMenu.evaluate((element: HTMLButtonElement) => element.click());
 
   await expect(page).toHaveScreenshot('menu-open.png');
 
   await treeItemMenuButton.click();
 
-  await expect(page).toHaveScreenshot('after-click.png');
-
   expect(tag).toHaveText('Clicked', { timeout: 5000 });
+
+  await expect(page).toHaveScreenshot('after-click.png');
 });

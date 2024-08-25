@@ -16,6 +16,9 @@ test('can interact with Checkbox elements', async ({ page }) => {
   // but Playwright doesn't recognize it as a checkbox
   // await checkbox.click({ force: true });
 
+  // Calling `click()` on it directly via `evaluate` works,
+  // but Playwright's `locator.click()` does not.
+  // https://playwright.dev/docs/api/class-locator#locator-evaluate
   await checkbox.evaluate((element: HTMLInputElement) => element.click());
 
   expect(tag).toHaveText('true', { timeout: 5000 });

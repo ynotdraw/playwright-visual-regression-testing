@@ -15,6 +15,9 @@ test('can interact with Toggle elements', async ({ page }) => {
   // but Playwright doesn't recognize it as a checkbox or radio
   // await toggle.click();
 
+  // Calling `click()` on it directly via `evaluate` works,
+  // but Playwright's `locator.click()` does not.
+  // https://playwright.dev/docs/api/class-locator#locator-evaluate
   await toggle.evaluate((element: HTMLInputElement) => element.click());
 
   expect(tag).toHaveText('true', { timeout: 5000 });
