@@ -4,12 +4,12 @@ Overall findings testing with Playwright.
 
 ## TODO
 
-- Dropdown
 - Toasts
 
 ## Components that seem to work just fine
 
 - Button
+- Dropdown
 - Form Controls Layout
 - Icon Button
 - Menu
