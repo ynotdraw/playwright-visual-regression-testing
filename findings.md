@@ -1,6 +1,12 @@
 # Findings
 
-Overall findings testing with Playwright.
+Overall findings testing with Playwright. To go through these findings yourself, you can do the following:
+
+- Clone this repo and this `testing-closed-shadow-roots` branch
+- Run `pnpm i`
+- Run `pnpm test` to kick off the tests
+
+To only run the Storybook, run `pnpm start`.
 
 ## Components that seem to work just fine
 
