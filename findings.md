@@ -15,8 +15,11 @@ Overall findings testing with Playwright.
 - Status Indicator
 - Tabs
 - Tag
+- Tooltip
 
-## Components that work with a minor adjustment
+## Components that work with a slight change
+
+These components work well with Playwright, but may require something a bit unexpected for them to behave as you'd like.
 
 - Dropdown (filtering)
   - Use `pressSequentially()` instead of `fill()`. Unclear why, need to dig in more.
@@ -46,9 +49,14 @@ Notes about `evaluate`:
 
 ## Components with issues
 
+- Accordion needs to expose a `click()` or `open()` method so it can open programmatically
 - Split Button's menu icon button
   - Can't be clicked - wonder if a click method on the host would help? Not sure.
 - Toasts
   - Can't be accessed at all, as each toast is in the closed shadow root of `glide-core-toasts`.
     - Does it make sense to adjust the component API of `glide-core-toasts` so that each toast is somehow in the light DOM or the consumer has access?
     - Should `glide-core-toasts` open its shadow root since it's only a container? Then consumers would have direct access to each `glide-core-toast` directly, but each `toast` would have their roots still closed.
+
+## Skipped
+
+- Skipped Button Group for now due to low/no usage
