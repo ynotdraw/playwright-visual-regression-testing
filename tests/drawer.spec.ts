@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.only('can interact with Drawer elements', async ({ page }) => {
+test('can interact with Drawer elements', async ({ page }) => {
   await page.goto('/iframe.html?args=&id=drawer--primary&viewMode=story');
 
   const button = page.getByTestId('button');

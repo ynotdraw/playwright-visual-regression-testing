@@ -30,6 +30,8 @@ These components work well with Playwright, but may require something a bit unex
 - Checkbox
   - Calling `click()` doesn't toggle the state, even though it works when done in JavaScript
   - Must use `evaluate()` and call `click()` through it
+- Checkbox Group
+  - Shouldn't be surprising - same as above.
 - Toggle
   - Calling `click()` doesn't toggle the state, even though it works when done in JavaScript
   - Must use `evaluate()` and call `click()` through it
