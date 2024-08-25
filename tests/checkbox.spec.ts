@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('can interact with Checkbox elements', async ({ page }) => {
+test('can interact with Checkbox elements', async ({ page }) => {
   await page.goto('/iframe.html?args=&id=checkbox--primary&viewMode=story');
 
   const tag = page.getByTestId('tag-state');
@@ -14,7 +14,9 @@ test.skip('can interact with Checkbox elements', async ({ page }) => {
   // Also tried `.check()` with no luck:
   // await checkbox.check({ force: true });
   // but Playwright doesn't recognize it as a checkbox
-  await checkbox.click({ force: true });
+  // await checkbox.click({ force: true });
+
+  await checkbox.evaluate((element: HTMLInputElement) => element.click());
 
   expect(tag).toHaveText('true', { timeout: 5000 });
 

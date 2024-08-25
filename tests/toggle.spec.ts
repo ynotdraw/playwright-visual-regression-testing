@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('can interact with Toggle elements', async ({ page }) => {
+test('can interact with Toggle elements', async ({ page }) => {
   await page.goto('/iframe.html?args=&id=toggle--primary&viewMode=story');
 
   const tag = page.getByTestId('tag-state');
@@ -13,7 +13,9 @@ test.skip('can interact with Toggle elements', async ({ page }) => {
   // Also tried `.check()` with no luck:
   // await toggle.check({ force: true });
   // but Playwright doesn't recognize it as a checkbox or radio
-  await toggle.click();
+  // await toggle.click();
+
+  await toggle.evaluate((element: HTMLInputElement) => element.click());
 
   expect(tag).toHaveText('true', { timeout: 5000 });
 
